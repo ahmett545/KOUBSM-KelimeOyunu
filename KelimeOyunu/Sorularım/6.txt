@@ -1,29 +1,29 @@
-Bir toplumdaki ahlaki davranış biçimleri ya da yol yordam anlamındaki söz
-ADAP
-Bir çok süper kahramanın, üzerine kilodunu giyerek kullandığı kıyafet türü
-TAYT
-Erkek kardeş anlamına gelen, yöresel bir hitap sözü olarak hemşeriliği pekiştiren tabir
-DADAŞ
-Peygamberlere yakıştırılan bir mesleğin simgesi olan müzik aleti
-KAVAL
-Hısım akraba olma isteğiyle ziyarete gelen misafir türü
-GÖRÜCÜ
-Yabancı anlamına gelen, aileye evlilik yoluyla giren erkekler için de kullanılan samimiyetsiz tabir
-ELOĞLU
-Birbirine uyan, aralarında anlaşmazlık olmayan anlamındaki eski bir söz
-MUTABIK
-Açlık bastırmaya yarayan, atıştırmalık yiyecek
-KAYINTI
-Ödeme aracı, boş kimlik belgesi, mühür gibi üretimler yapan hazine müsteşarlığına bağlı kuruluş
-DARPHANE
-İki kişilik olanlarına “tandem” denen taşıt
-BİSİKLET
-Yapılan iyiliğe karşı gönül borcu olan kişi
-MİNNETTAR
-Bir şeyi iflah olmaz, onmaz hale getirmek
-MAHVETMEK
-İlaçların yapısı, özellikleri ve özellikle de organizmadaki işlevleri ile ilgilenen bilim insanı
-FARMAKOLOG
-Aşkla bağlandığım kişi, kalbimin sahibi, yarim anlamlarında kullanılan söz
-SEVDİCEĞİM
+﻿Soğuk bir cisim üzerine ince bir tabaka durumunda yoğunlaşmış sıvı
+BUĞU
+“Kendine çekme, etkileyerek bağlama” anlamında ki Arapça kökenli bir sözcük
+CEZP
+Bazı orkide türlerinden elde edilen, içecek ve dondurma yapımında kullanılan toz
+SALEP
+“Kalmak” fiili ile birlikte, “Bir şeyin olmasına çok az kalmak” anlamında kullanılan sözcük
+RAMAK
+“Müşkül” sözünün karşılıklarından biri
+ZORLUK
+Avuç içine bakılarak yapılan kehanet türü
+ELFALI
+Bir adın başka bir ad, zamir veya sıfatla oluşturduğu kelime grubu
+TAMLAMA
+“Açıktan açığa, gerçekten” anlamlarında pekiştirilmiş bir sözcük
+DÜPEDÜZ
+Sürekli ve aşırı çalışmadan doğan yorgunluk, bitkinlik
+SÜRMENAJ
+“İlişkili, ilintili, ilgili” anlamlarındaki bir söz
+ALAKADAR
+“Sağ gösterip sol vurmak”. Şaşırtarak aldatmak
+YANILTMAK
+“İyileştirmek, tedavi etmek” anlamında bir sözcük
+SAĞALTMAK
+“Saklanan, gizlenen bir şey veya bir kişi için gözükme, anlaşılma” anlamlarında bir söz dizisi
+AÇIĞAÇIKMA
+Yatırılmış sermayenin bir kuruluşun veya bir yatırımın gelir sağlayabilme olanağı, rantabilite
+VERİMLİLİK
 SORU DOSYASI

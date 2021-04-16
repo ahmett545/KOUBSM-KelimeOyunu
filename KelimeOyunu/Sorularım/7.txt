@@ -1,29 +1,29 @@
-Bazı küçük çocukların ilköğretim çağına gelinceye kadar mesai saatlerini geçirdikleri yer
-KREŞ
-Mesaj kaygılı hayvan hikayesi
-FABL
-Bir yerin yakınında olan bölgeler
-CİVAR
-Oyun dışı bırakılmış pul
-KIRIK
-Yere yakın ziynet eşyası
-HALHAL
-Zekâ düzeyi gelişmemiş anlamındaki bir tabirin kısaltılmış hali
-GERZEK
-Cezayla sonuçlanabilecek uygunsuz hareket
-KABAHAT
-İşsiz güçsüz, bedavadan geçinen kimse
-HAYBECİ
-Ruh biliminde karşıt duygu, sevimsizlik, soğukluk
-ANTİPATİ
-Taht sahibi olan devlet başkanı
-HÜKÜMDAR
-Laktozun Türkçe karşılığı
-SÜTŞEKERİ
-İstek ve düşünceleri konuşmadan ifade etme biçimi
-BEDENDİLİ
-Hercai çapkınların daldan dala konmalarını, sevda seyrüseferlerini anlatan deyim
-AŞKTRAFİĞİ
-Kaba ve hoyratça davranmak
-İTİPKAKMAK
+﻿Devlet veya özel kurumlarca verilen eğitim öğretim ödeneği
+BURS
+Gönül birliği kurulmuş arkadaş, gönüldaş
+DOST
+Yok olmaya sebep olabilecek şey, büyük zarar, felaket
+YIKIM
+Besin değeri düşük olsa da hayvancılıkta yararlanılan, tahıl hasadının artık ürünü
+SAMAN
+“İnsicamlı, rabıtalı, muntazam” sözlerinin yaygın kullanılan karşılığı
+DÜZGÜN
+Yapılacak bir işin türlü evrelerini zamana bağlı olarak gösteren program
+TAKVİM
+Randevulaştığı kişi tarafından aldatılmak
+EKİLMEK
+“Bir internet servisi veya web sitesi adresinin sözcük olarak ismi” anlamındaki bilişim terimi
+ALANADI
+“Film prodüksiyon şirketi”nin Türkçe karşılığı
+YAPIMEVİ
+İçindeki tanelerin hareketi ile ses çıkaran oyuncak
+ÇINGIRAK
+Onarım evi
+TAMİRHANE
+Bilgisayarların ve onu kullanan insanların internet ve benzeri ağlar içinde kurduğu iletişimden doğan ortam
+SANALALEM
+Halk ağzında, “Sözü geçme, yetkisi olma” anlamında kullanılan bir tabir
+BORUSUÖTME
+“Araç gereç” ile eş anlamlı kullanılan bir sözcük dizisi
+ALETEDEVAT
 SORU DOSYASI
