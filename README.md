@@ -3,7 +3,8 @@
 ##    🖼️ TASARIM        
 ###   1️⃣ Giriş Ekranı
 
-![yazgelfoto1](https://user-images.githubusercontent.com/68346651/114933444-56210700-9e41-11eb-9b5c-efdf4670ecbe.jpg)
+![5](https://user-images.githubusercontent.com/68346651/114969531-3ad5ec00-9e81-11eb-9b0c-d80cc7b1d736.jpg)
+
 ### 2️⃣ Oyuna Başla Ekranı
 
 ![yazgelfoto2](https://user-images.githubusercontent.com/68346651/114933577-7c46a700-9e41-11eb-9cff-88ca6a2975e6.jpg)
