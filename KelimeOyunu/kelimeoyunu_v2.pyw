@@ -85,8 +85,7 @@ class soruekle_ekran(tk.Tk):
         self.cevap_giris.pack()
         self.olustur_buton.pack()
 
-        self.soru=self.girilen_soru.get()
-        self.cevap=self.girilen_cevap.get()
+
         self.azami_karakter_siniri = 20
 
         self.izin_verilen_karakterler = ["A", "B", "C", "Ç", "D", "E", "F", "G", "Ğ", "H", "I", "İ", "J", "K", "L", "M",
@@ -98,22 +97,21 @@ class soruekle_ekran(tk.Tk):
         self.protocol("WM_DELETE_WINDOW", self.kapat)
 
     def soru_kontrol(self, *args):
-        print(self.girilen_soru.get())
-        print(self.girilen_cevap.get())
-        #if len(self.girilen_soru.get()) <= 1:
-         #   msgbox.showerror("Hata", "Soru 10 karakterden az olamaz")
-          #  return None
-        for i in self.girilen_soru.get():
+        if len(self.soru_giris.get()) <= 5:
+            msgbox.showerror("Hata", "Soru 5 karakterden az olamaz")
+            return None
+        for i in self.soru_giris.get():
             if not (i in self.izin_verilen_karakterler):
                 msgbox.showerror("Hata",
                                  "Soru içinde izin verilmeyen karakter tespit edildi.\nTürkçe karakterler dışındaki tüm karakterler ve noktalama işaretleri girilemez.")
-                self.girilen_soru.set("")
+                self.soru_giris.set("")
                 return None
-        if len(self.girilen_soru.get()) > self.azami_karakter_siniri:
+        if len(self.soru_giris.get()) > self.azami_karakter_siniri:
             msgbox.showerror("Hata", "Soru çok uzun.")
-            self.girilen_soru.set("")
+            self.soru_giris.set("")
             return None
-
+        self.soru = self.soru_giris.get()
+        self.cevap = self.cevap_giris.get()
         self.destroy()
         self.olustur()
 
@@ -125,7 +123,7 @@ class soruekle_ekran(tk.Tk):
                     pass
 
             with open("Sorular.txt", "a", encoding="utf-8") as f:
-                f.write("{soru}\n{cevap}\n".format(cevap=self.soru, soru=self.cevap))
+                f.write("{soru}\n{cevap}\n".format(soru=self.soru, cevap=self.cevap))
                 msgbox.showinfo("Bilgi", "Sorunuz Başarıyla Eklenmiştir.")
 
     def kapat(self):
@@ -364,7 +362,6 @@ class oyunEkrani(tk.Tk):
         self.tahmin_giris.delete(0, "end")
         self.bildi(False)
 
-
     def dosya_dogrula(self):
         return len(self.sorular) != 29 or self.sorular[-1] != "SORU DOSYASI"
 
@@ -373,7 +370,6 @@ class oyunEkrani(tk.Tk):
             calisma_dizini = dirname(realpath(__file__))
             rndSoru=random.randint(1,16)
             yeni_dosya = (calisma_dizini+"\\"+'Sorularım'+"\\"+str(rndSoru)+ ".txt")
-
 
             if yeni_dosya == '':
                 if self.son_dosya == '':
@@ -489,6 +485,7 @@ class puanTablosu(tk.Tk):
 if __name__ == "__main__":
     ad_al = oyuncuAd()
     ad_al.mainloop()
+
 
 
     pencere = oyunEkrani(ad_al.isim)
