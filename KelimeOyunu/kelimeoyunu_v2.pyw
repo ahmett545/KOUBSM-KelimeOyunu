@@ -18,10 +18,12 @@ class oyuncuAd(tk.Tk):
         self.isim_giris = tk.Entry(self, font=("Helvetica", 30), textvariable=self.girilen_isim, width=25)
         self.onayla_buton = tk.Button(self, text="OYNA", command=self.ad_kontrol, font=("Helvetica", 30) , bg="red")
         self.tablo_buton = tk.Button(self, text="Tablo Göster", command=self.tablo_goster, font=("Helvetica", 30), bg="yellow")
+        self.soruekle_buton = tk.Button(self, text="Soru Ekle", command=self.soru_ekle, font=("Helvetica", 30), bg="aqua")
         self.statik_etiket.pack()
         self.isim_giris.pack()
         self.onayla_buton.pack()
         self.tablo_buton.pack()
+        self.soruekle_buton.pack()
         self.isim = ""
         self.azami_karakter_siniri = 20
         self.girilen_isim.trace("w", self.krktrsayi_kontrol)
@@ -29,19 +31,24 @@ class oyuncuAd(tk.Tk):
         "a","b","c","ç","d","e","f","g","ğ","h","ı","i","j","k","l","m","n","o","ö","p","r","s","ş","t","u","ü","v","y","z"," "]
         self.isim_giris.focus()
         self.protocol("WM_DELETE_WINDOW", self.kapat)
-        
+
     def krktrsayi_kontrol(self, *args):
         if len(self.girilen_isim.get()) != 0:
             if len(self.girilen_isim.get()) > self.azami_karakter_siniri:
                 self.girilen_isim.set(self.girilen_isim.get()[:-1])
-            
+
             if not (self.girilen_isim.get()[-1] in self.izin_verilen_karakterler):
                 self.girilen_isim.set(self.girilen_isim.get()[:-1])
     def tablo_goster(self, *args):
         puan_goster = puanTablosu()
         puan_goster.focus_force()
-        # puan_goster.mainloop()
+
+    def soru_ekle(self,*args):
+        soruekle=soruekle_ekran()
+        soruekle.focus_force()
+
     def ad_kontrol(self, *args):
+        print(self.girilen_isim.get())
         if len(self.girilen_isim.get()) <= 2:
             msgbox.showerror("Hata","İsimdeki karakter sayısı en az 3 olmalı.")
             return None
@@ -56,7 +63,71 @@ class oyuncuAd(tk.Tk):
             return None
         self.isim = self.girilen_isim.get()
         self.destroy()
-    
+
+    def kapat(self):
+        raise SystemExit
+#************************************************************************************************************
+class soruekle_ekran(tk.Tk):
+    def __init__(self):
+        tk.Tk.__init__(self)
+        self.resizable(False, False)
+        self.title("Soru Ekleme - 171307029")
+        self.bind("<Return>", self.soru_kontrol)
+        self.bind("<Control-p>", self.olustur)
+        self.statik_etiket1 = tk.Label(self, text="Soru ve Cevabını giriniz !", font=("Arial", 30))
+        self.girilen_soru = tk.StringVar()
+        self.girilen_cevap = tk.StringVar()
+        self.soru_giris = tk.Entry(self, font=("Helvetica", 30), textvariable=self.girilen_soru, width=35)
+        self.cevap_giris = tk.Entry(self, font=("Helvetica", 30), textvariable=self.girilen_cevap, width=12)
+        self.olustur_buton = tk.Button(self, text="Oluştur", command=self.soru_kontrol, font=("Helvetica", 30), bg="red")
+        self.statik_etiket1.pack()
+        self.soru_giris.pack()
+        self.cevap_giris.pack()
+        self.olustur_buton.pack()
+
+        self.soru=self.girilen_soru.get()
+        self.cevap=self.girilen_cevap.get()
+        self.azami_karakter_siniri = 20
+
+        self.izin_verilen_karakterler = ["A", "B", "C", "Ç", "D", "E", "F", "G", "Ğ", "H", "I", "İ", "J", "K", "L", "M",
+                                         "N", "O", "Ö", "P", "R", "S", "Ş", "T", "U", "Ü", "V", "Y", "Z",
+                                         "a", "b", "c", "ç", "d", "e", "f", "g", "ğ", "h", "ı", "i", "j", "k", "l", "m",
+                                         "n", "o", "ö", "p", "r", "s", "ş", "t", "u", "ü", "v", "y", "z", " "]
+        self.soru_giris.focus()
+        self.cevap_giris.focus()
+        self.protocol("WM_DELETE_WINDOW", self.kapat)
+
+    def soru_kontrol(self, *args):
+        print(self.girilen_soru.get())
+        print(self.girilen_cevap.get())
+        #if len(self.girilen_soru.get()) <= 1:
+         #   msgbox.showerror("Hata", "Soru 10 karakterden az olamaz")
+          #  return None
+        for i in self.girilen_soru.get():
+            if not (i in self.izin_verilen_karakterler):
+                msgbox.showerror("Hata",
+                                 "Soru içinde izin verilmeyen karakter tespit edildi.\nTürkçe karakterler dışındaki tüm karakterler ve noktalama işaretleri girilemez.")
+                self.girilen_soru.set("")
+                return None
+        if len(self.girilen_soru.get()) > self.azami_karakter_siniri:
+            msgbox.showerror("Hata", "Soru çok uzun.")
+            self.girilen_soru.set("")
+            return None
+
+        self.destroy()
+        self.olustur()
+
+    def olustur(self,*args):
+
+        if args == ():
+            if not isfile("Sorular.txt"):
+                with open("Sorular.txt", "w", encoding="utf-8") as f:
+                    pass
+
+            with open("Sorular.txt", "a", encoding="utf-8") as f:
+                f.write("{soru}\n{cevap}\n".format(cevap=self.soru, soru=self.cevap))
+                msgbox.showinfo("Bilgi", "Sorunuz Başarıyla Eklenmiştir.")
+
     def kapat(self):
         raise SystemExit
 
@@ -124,7 +195,7 @@ class oyunEkrani(tk.Tk):
                 with open(self.son_dosya,encoding="utf-8") as f:
                     self.sorular = f.readlines()
                     if self.dosya_dogrula():
-                        msgbox.showerror("Hata","Yanlış formatta bir soru dosyası seçilmiş.")
+                        msgbox.showerror("Hata","Yanlış format.")
                         self.yeni_sorular()
             except FileNotFoundError:
                 msgbox.showerror("Hata","Soru dosyası yüklemesi sırasında bir hata oluştu.")
@@ -134,11 +205,11 @@ class oyunEkrani(tk.Tk):
     def geri_sayim(self, yerel_kalan_sure = None):
         if yerel_kalan_sure is not None:
             self.kalan_sure = yerel_kalan_sure
-        
+
         if self.ozel_durum:
             self.ozel_durum = False
             self.oyun_sonu()
-        
+
         if self.kalan_sure <= 0:
             self.sure_etiket.configure(text="Zaman doldu!")
             self.sure_durdu("Süre Bitti")
@@ -151,19 +222,19 @@ class oyunEkrani(tk.Tk):
     def ileri_sayim(self, bastan_basla = False):
         if self.ara:
             return None
-        
+
         if bastan_basla:
             self.gecen_sure = 0
             self.dusunsure_etiket.configure(fg = "black")
             self.dusunsure_etiket_statik.configure(text="Cevap vermek için")
-        
+
         if self.gecen_sure >= 15:
             self.dusunsure_etiket.configure(fg = "red")
-         
+
         if self.gecen_sure >= 20:
             self.bilemedi()
             return None
-        
+
         self.dusunsure_etiket.configure(text="{0}".format(int(self.gecen_sure)))
         self.gecen_sure += 0.1
         if self.durduruldu:
@@ -293,7 +364,7 @@ class oyunEkrani(tk.Tk):
         self.tahmin_giris.delete(0, "end")
         self.bildi(False)
 
-    
+
     def dosya_dogrula(self):
         return len(self.sorular) != 29 or self.sorular[-1] != "SORU DOSYASI"
 
@@ -301,8 +372,8 @@ class oyunEkrani(tk.Tk):
         if not self.oyun_devam:
             calisma_dizini = dirname(realpath(__file__))
             rndSoru=random.randint(1,16)
-            yeni_dosya = (calisma_dizini+"\\"+str(rndSoru)+ ".soru")
-            '''yeni_dosya = fdialog.askopenfilename(filetypes=[("Soru Dosyaları","*.soru")], initialdir=calisma_dizini, title="Soru dosyası seç...")'''
+            yeni_dosya = (calisma_dizini+"\\"+'Sorularım'+"\\"+str(rndSoru)+ ".txt")
+
 
             if yeni_dosya == '':
                 if self.son_dosya == '':
@@ -351,10 +422,10 @@ class oyunEkrani(tk.Tk):
             if not isfile("puanlar.txt"):
                 with open("puanlar.txt","w",encoding="utf-8") as f:
                     f.write("İsim,Puan,Kalan Süre,Soru Paketi\n")
-            
+
             with open("puanlar.txt","a",encoding="utf-8") as f:
                 f.write("{isim},{puan},{sure},{dosya}\n".format(isim=self.oyuncu_ismi, puan=self.puan, sure=int(self.kalan_sure), dosya=basename(self.son_dosya)))
-        
+
         puan_goster = puanTablosu()
         puan_goster.focus_force()
         puan_goster.mainloop()
@@ -386,7 +457,7 @@ class puanTablosu(tk.Tk):
         self.kapat_buton.grid(row=12,column=0, columnspan=3)
         self.puanlar_liste = []
         self.puan_yukle()
-    
+
     def puan_yukle(self):
         if isfile("puanlar.txt"):
             with open("puanlar.txt",encoding="utf-8") as f:
@@ -418,5 +489,7 @@ class puanTablosu(tk.Tk):
 if __name__ == "__main__":
     ad_al = oyuncuAd()
     ad_al.mainloop()
+
+
     pencere = oyunEkrani(ad_al.isim)
     pencere.mainloop()
